@@ -1,1 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>МЛФЛ: Команды и Расписание</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(-45deg, red, white, blue, white);
+      background-size: 400% 400%;
+      animation: gradient 10s ease infinite;
+      color: #000;
+    }
 
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background-color: rgba(255, 255, 255, 0.85);
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      color: #cc0000;
+      text-shadow: 1px 1px 2px white;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    table, th, td {
+      border: 1px solid #333;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      background-color: white;
+    }
+
+    th {
+      background-color: #0033cc;
+      color: white;
+    }
+
+    .btn-back {
+      display: block;
+      margin: 40px auto 0;
+      padding: 10px 20px;
+      background-color: #cc0000;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .btn-back:hover {
+      background-color: #990000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Команды МЛФЛ</h1>
+    <table>
+      <tr>
+        <th>Команда</th>
+        <th>Город</th>
+        <th>Очки</th>
+      </tr>
+      <tr>
+        <td>Спарта</td>
+        <td>Москва</td>
+        <td>15</td>
+      </tr>
+      <tr>
+        <td>Вихрь</td>
+        <td>Казань</td>
+        <td>12</td>
+      </tr>
+      <tr>
+        <td>Метеор</td>
+        <td>Санкт-Петербург</td>
+        <td>9</td>
+      </tr>
+    </table>
+
+    <h2>Расписание матчей</h2>
+    <table>
+      <tr>
+        <th>Дата</th>
+        <th>Команды</th>
+        <th>Стадион</th>
+      </tr>
+      <tr>
+        <td>12.05.2025</td>
+        <td>Спарта vs Вихрь</td>
+        <td>Арена Центральная</td>
+      </tr>
+      <tr>
+        <td>18.05.2025</td>
+        <td>Вихрь vs Метеор</td>
+        <td>Стадион Юг</td>
+      </tr>
+      <tr>
+        <td>25.05.2025</td>
+        <td>Метеор vs Спарта</td>
+        <td>Северная Арена</td>
+      </tr>
+    </table>
+
+    <button class="btn-back" onclick="window.location.href='index.html'">← На главную</button>
+  </div>
+</body>
+</html>
