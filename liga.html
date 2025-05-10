@@ -2,128 +2,123 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>МЛФЛ: Команды и Расписание</title>
+  <title>МЛФЛ Панель</title>
   <style>
     body {
+      background-color: #000;
+      color: white;
+      font-family: 'Arial Black', sans-serif;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(-45deg, red, white, blue, white);
-      background-size: 400% 400%;
-      animation: gradient 10s ease infinite;
-      color: #000;
     }
 
-    @keyframes gradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
-      background-color: rgba(255, 255, 255, 0.85);
-      border-radius: 12px;
-      margin-top: 40px;
-    }
-
-    h1, h2 {
+    header {
+      background-color: #001100;
+      padding: 20px;
       text-align: center;
-      color: #cc0000;
-      text-shadow: 1px 1px 2px white;
+      box-shadow: 0 0 10px #00ff00;
+    }
+
+    .btn-nav {
+      border: 2px solid #00ff00;
+      background: transparent;
+      color: white;
+      padding: 10px 20px;
+      margin: 5px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-nav:hover, .btn-nav.active {
+      background-color: #00ff00;
+      color: black;
+    }
+
+    .content {
+      padding: 20px;
+    }
+
+    .tab {
+      display: none;
+    }
+
+    .tab.active {
+      display: block;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 20px;
-    }
-
-    table, th, td {
-      border: 1px solid #333;
+      background-color: #111;
+      color: white;
     }
 
     th, td {
-      padding: 12px;
+      border: 1px solid #444;
+      padding: 10px;
       text-align: center;
-      background-color: white;
     }
 
     th {
-      background-color: #0033cc;
-      color: white;
-    }
-
-    .btn-back {
-      display: block;
-      margin: 40px auto 0;
-      padding: 10px 20px;
-      background-color: #cc0000;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .btn-back:hover {
-      background-color: #990000;
+      background-color: #003300;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Команды МЛФЛ</h1>
-    <table>
-      <tr>
-        <th>Команда</th>
-        <th>Город</th>
-        <th>Очки</th>
-      </tr>
-      <tr>
-        <td>Спарта</td>
-        <td>Москва</td>
-        <td>15</td>
-      </tr>
-      <tr>
-        <td>Вихрь</td>
-        <td>Казань</td>
-        <td>12</td>
-      </tr>
-      <tr>
-        <td>Метеор</td>
-        <td>Санкт-Петербург</td>
-        <td>9</td>
-      </tr>
-    </table>
 
-    <h2>Расписание матчей</h2>
-    <table>
-      <tr>
-        <th>Дата</th>
-        <th>Команды</th>
-        <th>Стадион</th>
-      </tr>
-      <tr>
-        <td>12.05.2025</td>
-        <td>Спарта vs Вихрь</td>
-        <td>Арена Центральная</td>
-      </tr>
-      <tr>
-        <td>18.05.2025</td>
-        <td>Вихрь vs Метеор</td>
-        <td>Стадион Юг</td>
-      </tr>
-      <tr>
-        <td>25.05.2025</td>
-        <td>Метеор vs Спарта</td>
-        <td>Северная Арена</td>
-      </tr>
-    </table>
+<header>
+  <button class="btn-nav active" onclick="showTab('teams')">Таблица команд</button>
+  <button class="btn-nav" onclick="showTab('schedule')">Расписание</button>
+  <button class="btn-nav" onclick="showTab('history')">История матчей</button>
+</header>
 
-    <button class="btn-back" onclick="window.location.href='index.html'">← На главную</button>
+<div class="content">
+  <div id="teams" class="tab active">
+    <h2>Таблица команд</h2>
+    <table>
+      <tr><th>Команда</th><th>Город</th><th>Очки</th></tr>
+      <tr><td>ORION</td><td>Москва</td><td>6</td></tr>
+      <tr><td>СПАРТА</td><td>Казань</td><td>3</td></tr>
+    </table>
   </div>
+
+  <div id="schedule" class="tab">
+    <h2>Расписание</h2>
+    <table>
+      <tr><th>Дата</th><th>Матч</th><th>Место</th></tr>
+      <tr><td>10.05.2025</td><td>ORION vs СПАРТА</td><td>Центральный стадион</td></tr>
+    </table>
+  </div>
+
+  <div id="history" class="tab">
+    <h2>История матчей</h2>
+    <table>
+      <tr><th>Дата</th><th>Матч</th><th>Счёт</th></tr>
+      <tr><td>01.05.2025</td><td>ORION vs СПАРТА</td><td>2:0</td></tr>
+    </table>
+  </div>
+</div>
+
+<script>
+  function showTab(tabId) {
+    const tabs = document.querySelectorAll('.tab');
+    const buttons = document.querySelectorAll('.btn-nav');
+
+    tabs.forEach(tab => {
+      tab.classList.remove('active');
+    });
+
+    buttons.forEach(btn => {
+      btn.classList.remove('active');
+    });
+
+    document.getElementById(tabId).classList.add('active');
+    event.target.classList.add('active');
+  }
+</script>
+
 </body>
 </html>
