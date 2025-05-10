@@ -27,12 +27,12 @@
       text-align: center;
       box-shadow: 0 0 10px #000;
       position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .logo {
-      position: absolute;
-      top: 10px;
-      left: 20px;
       font-size: 36px;
       font-weight: bold;
       color: #ffffff;
@@ -99,12 +99,21 @@
 
 <header>
   <div class="logo">МЛФЛ</div>
-  <button class="btn-nav active" onclick="showTab('teams')">Таблица команд</button>
-  <button class="btn-nav" onclick="showTab('schedule')">Расписание</button>
-  <button class="btn-nav" onclick="showTab('history')">История матчей</button>
+  <div class="header-buttons">
+    <button class="btn-nav" onclick="showTab('news')">Новости</button>
+    <button class="btn-nav active" onclick="showTab('teams')">Таблица команд</button>
+    <button class="btn-nav" onclick="showTab('schedule')">Расписание</button>
+    <button class="btn-nav" onclick="showTab('history')">История матчей</button>
+    <button class="btn-nav" onclick="window.location.href='https://vk.com'" target="_blank">VK</button>
+  </div>
 </header>
 
 <div class="content">
+  <div id="news" class="tab">
+    <h2>Новости</h2>
+    <p>Здесь будут отображаться последние новости.</p>
+  </div>
+
   <div id="teams" class="tab active">
     <h2>Таблица команд</h2>
     <table>
