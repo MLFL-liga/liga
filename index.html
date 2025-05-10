@@ -2,79 +2,46 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Мой Патриотичный Сайт</title>
+  <title>Патриотичный фон</title>
   <style>
-    body {
+    html, body {
+      height: 100%;
       margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      background-color: #0033cc; /* синий */
       color: white;
+      text-align: center;
     }
 
-    header {
-      background-color: white;
-      color: #0033cc;
-      padding: 20px;
-      text-align: center;
+    body {
+      background: linear-gradient(-45deg, red, white, blue, white);
+      background-size: 400% 400%;
+      animation: gradient 10s ease infinite;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     h1 {
-      color: #cc0000; /* красный */
+      font-size: 48px;
+      text-shadow: 2px 2px 5px black;
     }
 
-    .content {
-      padding: 40px;
-      text-align: center;
-    }
-
-    .card {
-      background-color: white;
-      color: #0033cc;
-      padding: 20px;
-      border-radius: 10px;
-      display: inline-block;
-      margin: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-
-    .btn {
-      background-color: #cc0000; /* красный */
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 16px;
-    }
-
-    .btn:hover {
-      background-color: #990000;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #001a66;
-      color: white;
+    p {
+      font-size: 24px;
+      max-width: 600px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Добро пожаловать!</h1>
-    <p>Сайт в цветах флага: синий, белый, красный</p>
-  </header>
-
-  <div class="content">
-    <div class="card">
-      <h2>О нас</h2>
-      <p>Это пример простого сайта, оформленного в патриотичных цветах.</p>
-      <button class="btn">Узнать больше</button>
-    </div>
-  </div>
-
-  <footer>
-    © 2025 Мой Сайт
-  </footer>
+  <h1>Привет, мир!</h1>
+  <p>Это фон с переливающимися цветами: красный, белый и синий.</p>
 </body>
 </html>
