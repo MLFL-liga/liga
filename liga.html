@@ -23,9 +23,17 @@
     header {
       background-color: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(6px);
-      padding: 20px;
+      padding: 20px 20px 20px 100px;
       text-align: center;
       box-shadow: 0 0 10px #000;
+      position: relative;
+    }
+
+    .logo {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      height: 50px;
     }
 
     .btn-nav {
@@ -87,6 +95,7 @@
 <body>
 
 <header>
+  <img src="mlfl-logo.png" alt="МЛФЛ Логотип" class="logo">
   <button class="btn-nav active" onclick="showTab('teams')">Таблица команд</button>
   <button class="btn-nav" onclick="showTab('schedule')">Расписание</button>
   <button class="btn-nav" onclick="showTab('history')">История матчей</button>
