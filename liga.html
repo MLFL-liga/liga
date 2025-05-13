@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <title>МЛФЛ Панель</title>
   <style>
+    /* [Стили оставлены без изменений для краткости] */
     body {
       background: linear-gradient(135deg, #ff0000, #ffffff, #0000ff);
       background-size: 400% 400%;
@@ -93,6 +94,42 @@
       color: white;
       text-shadow: 1px 1px 2px #000;
     }
+
+    .team-link {
+      cursor: pointer;
+      color: #0000cc;
+      text-decoration: underline;
+    }
+
+    /* Modal styles */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.7);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 10% auto;
+      padding: 20px;
+      border: 3px solid #000;
+      width: 50%;
+      border-radius: 10px;
+    }
+
+    .close {
+      float: right;
+      font-size: 24px;
+      font-weight: bold;
+      cursor: pointer;
+      color: red;
+    }
   </style>
 </head>
 <body>
@@ -118,8 +155,8 @@
     <h2>Таблица команд</h2>
     <table>
       <tr><th>Команда</th><th>Город</th><th>Очки</th></tr>
-      <tr><td>ORION</td><td>Москва</td><td>6</td></tr>
-      <tr><td>СПАРТА</td><td>Казань</td><td>3</td></tr>
+      <tr><td><span class="team-link" onclick="showPlayers('ORION')">ORION</span></td><td>Москва</td><td>6</td></tr>
+      <tr><td><span class="team-link" onclick="showPlayers('СПАРТА')">СПАРТА</span></td><td>Казань</td><td>3</td></tr>
     </table>
   </div>
 
@@ -140,16 +177,51 @@
   </div>
 </div>
 
+<!-- Модальное окно -->
+<div id="playerModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="teamName"></h2>
+    <ul id="playerList"></ul>
+  </div>
+</div>
+
 <script>
   function showTab(tabId) {
     const tabs = document.querySelectorAll('.tab');
     const buttons = document.querySelectorAll('.btn-nav');
-
     tabs.forEach(tab => tab.classList.remove('active'));
     buttons.forEach(btn => btn.classList.remove('active'));
-
     document.getElementById(tabId).classList.add('active');
     event.target.classList.add('active');
+  }
+
+  const players = {
+    'ORION': ['Иван Иванов', 'Петр Петров', 'Сергей Сергеев'],
+    'СПАРТА': ['Алексей Смирнов', 'Дмитрий Кузнецов', 'Егор Сидоров']
+  };
+
+  function showPlayers(team) {
+    document.getElementById('teamName').innerText = 'Состав команды ' + team;
+    const list = document.getElementById('playerList');
+    list.innerHTML = '';
+    players[team].forEach(player => {
+      const li = document.createElement('li');
+      li.textContent = player;
+      list.appendChild(li);
+    });
+    document.getElementById('playerModal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('playerModal').style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('playerModal');
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
   }
 </script>
 
